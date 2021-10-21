@@ -55,4 +55,19 @@ const acceptEverything = (veggies) => {
 console.log(acceptEverything(veggies)); //Print: ok, I guess I will eat some brocolli. Ok,...spinach , etc.
 
 // 5
-//
+// Function that takes in an array of strings and returns a new array in capialized letters. 
+ // Super short form - condensed function! 
+const greetings = ['hello', 'hi', 'heya', 'oi', 'hey', 'yo']
+
+const shoutGreetings = arr => arr.map(word => word.toUpperCase() + '!');
+
+ //function declaration + loop
+ const greetings = ['hello', 'hi', 'heya', 'oi', 'hey', 'yo']
+
+ function shoutGreetings(arr) {
+    let shoutArray = []
+    for(let i = 0; i<arr.length; i++){
+        shoutArray.push(arr[i].toUpperCase() + '!')
+    }
+    return shoutArray
+}
