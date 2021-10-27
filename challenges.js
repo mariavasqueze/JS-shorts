@@ -130,3 +130,43 @@ const randomStuff = ['credit card', 'screwdriver', 'receipt', 'gum', 'keys', 'us
 const findMyKeys = arr => arr.findIndex(item => item === 'keys')
 
 console.log(findMyKeys(randomStuff))
+
+// 10
+// Function that returns the factorial n! of a number
+function factorial(n){
+  if (n === 0){
+    return 1;
+  }
+  else {
+    return n * factorial(n - 1);
+  }
+}
+console.log(factorial(6));
+
+// 11
+// Number of times a letter is in a word Ex: ('Saturday', 'a') prints 2
+//Accept a string for parameter 1 and a char for the second. 
+const subLength = (str, char) => {
+  let charCount = 0;
+  let len = -1;
+  
+  for (let i=0; i<str.length; i++) {
+    if (str[i] == char) {
+      charCount++;
+      if (charCount > 2) {
+        return 0;
+      }
+      if (len == -1) {
+        len = i;
+      } else {
+        len = i - len + 1
+      }
+    }
+  }
+  if (charCount < 2) {
+    return 0;
+  }
+
+  return len;
+};
+
