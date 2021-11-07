@@ -16,16 +16,25 @@ class Queue {
   }
 
   enqueue(data) {
+    if (this.hasRoom()) { // use .hasRoom to check if there's space in the queue, if there is add to tail.
     this.queue.addToTail(data);
     this.size++;
     console.log(`Added ${data} to queue! Queue size is now ${this.size}.`);
+    }
+    else {
+      throw new Error('Queue is full!');
+    }
   }
 
   dequeue() {
-    const data = this.queue.removeHead();
-    this.size--;
-    console.log(`Removed ${data} from queue! Queue size is now ${this.size}.`);
-    return data;
+    if (!this.isEmpty()) { //add is empty condition to follow the method just if it's not empty
+      const data = this.queue.removeHead();
+      this.size--;
+      console.log(`Removed ${data} from queue! Queue size is now ${this.size}.`);
+      return data;
+    } else {
+      throw new Error("Queue is empty!");
+    }
   }
 }
 
