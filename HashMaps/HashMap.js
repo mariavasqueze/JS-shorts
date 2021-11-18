@@ -5,12 +5,13 @@ const Node = require('./Node');
 class HashMap {
     constructor(size = 0) {
       this.hashmap = new Array(size)
-        .fill(null);
+        .fill(null)
+        .map(() => new LinkedList());
     }
     // Hashing function (takes key as input, returns index within the array)
     hash(key){
         let hashCode = 0;
-        for (let i = 0; i < key.length; i++){
+        for (let i = 0; i < key.length; i++) {
         hashCode += hashCode + key.charCodeAt(i); //add += to avoid generating duplicate hashCodes if keys have the same values
         }
         // return compressed hashcode (so it's in the bounds of the hash map's array), 
@@ -43,14 +44,14 @@ class HashMap {
     retrieve(key){
         const arrayIndex = this.hash(key); //calculate index
         let current = this.hashmap[arrayIndex].head;
-    while (current) {
-      if (current.data.key === key) {
-        console.log(`\nRetrieving ${current.data.value} from index ${arrayIndex}`);
-        return current.data.value;
-      }
-      current = current.next;
-    }
-    return null;
+        while (current) {
+         if (current.data.key === key) {
+            console.log(`\nRetrieving ${current.data.value} from index ${arrayIndex}`);
+            return current.data.value;
+        }
+        current = current.next;
+        }
+        return null;
     }
   }
 
